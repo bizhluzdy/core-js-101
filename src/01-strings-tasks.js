@@ -19,7 +19,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(str1, str2) {
-  return str1 + str2
+  return str1 + str2;
 }
 
 
@@ -35,7 +35,7 @@ function concatenateStrings(str1, str2) {
  *   ''      => 0
  */
 function getStringLength(str) {
-  return  str.length;
+  return str.length;
 }
 
 /**
@@ -66,7 +66,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(str) {
-  return str.substring(str.indexOf(" ") + 1).slice(0, -1);
+  return str.substring(str.indexOf(' ') + 1).slice(0, -1);
 }
 
 
@@ -96,7 +96,7 @@ function getFirstChar(str) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(str) {
-  return str.trim() ;
+  return str.trim();
 }
 
 /**
@@ -113,9 +113,9 @@ function removeLeadingAndTrailingWhitespaces(str) {
 function repeatString(str, count) {
   let i = 0;
   let result = '';
-  while (count > i){
+  while (count > i) {
     result += str;
-    i++;
+    i += 1;
   }
   return result;
 }
@@ -182,7 +182,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return str.split(';')
+  return str.split(';');
 }
 
 /**
@@ -199,21 +199,21 @@ function extractEmails(str) {
  *  (6,4) =>  '│    │\n'+
  *            '│    │\n'+
  *            '└────┘\n'
- * 
+ *
  *  (2,2) =>  '┌┐\n'+
  *            '└┘\n'
- * 
+ *
  *             '┌──────────┐\n'+
  *  (12,3) =>  '│          │\n'+
  *             '└──────────┘\n'
  *
  */
 function getRectangleString(w, h) {
-  var result = '┌' + '─'.repeat(w - 2) + '┐\n';
-  for (var i = 0; i < h - 2; i++) {
-    result += '│' + ' '.repeat(w - 2) + '│\n';
+  let result = `┌${'─'.repeat(w - 2)}┐\n`;
+  for (let i = 0; i < h - 2; i += 1) {
+    result += `│${' '.repeat(w - 2)}│\n`;
   }
-  result += '└' + '─'.repeat(w - 2) + '┘\n';
+  result += `└${'─'.repeat(w - 2)}┘\n`;
 
   return result;
 }
@@ -237,10 +237,10 @@ function getRectangleString(w, h) {
  */
 function encodeToRot13(str) {
   let result = '';
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     let char = str[i];
     if (char.match(/[a-z]/i)) {
-      let code = str.charCodeAt(i);
+      const code = str.charCodeAt(i);
       if (code >= 65 && code <= 90) {
         char = String.fromCharCode(((code - 65 + 13) % 26) + 65);
       } else if (code >= 97 && code <= 122) {
@@ -267,7 +267,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return (typeof(value) === 'string' || value instanceof String);
+  return (typeof (value) === 'string' || value instanceof String);
 }
 
 
@@ -296,10 +296,10 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const card = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
-                'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
-                'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
-                'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+  const card = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
   return card.indexOf(value);
 }
 
